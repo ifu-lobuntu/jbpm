@@ -230,6 +230,15 @@
       <artifactId>byteman-bmunit</artifactId>
       <scope>test</scope>
     </dependency>
+
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-cmmn-flow-builder</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.jbpm</groupId>
+      <artifactId>jbpm-cmmn-flow</artifactId>
+    </dependency>
   </dependencies>
 
   <build>

@@ -21,7 +21,17 @@
         <module>jbpm-executor</module>
         <module>jbpm-executor-cdi</module>
     </modules>
-
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.jbpm</groupId>
+                <artifactId>jbpm-cmmn-parent-with-dependencies</artifactId>
+                <version>${project.version}</version>
+                <scope>import</scope>
+                <type>pom</type>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
     <properties>
         <maven.btm.maxPoolSize>16</maven.btm.maxPoolSize>
     

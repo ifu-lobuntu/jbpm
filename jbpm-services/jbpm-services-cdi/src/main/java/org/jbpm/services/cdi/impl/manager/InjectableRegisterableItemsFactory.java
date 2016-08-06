@@ -35,6 +35,7 @@ import javax.inject.Inject;
 import org.drools.compiler.kie.builder.impl.KieContainerImpl;
 import org.drools.compiler.kie.util.CDIHelper;
 import org.drools.core.util.StringUtils;
+import org.jbpm.cmmn.task.registration.CaseRegisterableItemsFactory;
 import org.jbpm.process.audit.AbstractAuditLogger;
 import org.jbpm.process.audit.AuditLoggerFactory;
 import org.jbpm.process.audit.JPAWorkingMemoryDbLogger;
@@ -90,7 +91,7 @@ import org.slf4j.LoggerFactory;
  *  <li>getFactory(BeanManager, AbstractAuditLogger, KieContainer, String)</li>
  * </ul>  
  */
-public class InjectableRegisterableItemsFactory extends DefaultRegisterableItemsFactory {
+public class InjectableRegisterableItemsFactory extends CaseRegisterableItemsFactory {
 
     private static final String DEFAULT_KIE_SESSION = "defaultKieSession";
     private static final Logger logger = LoggerFactory.getLogger(InjectableRegisterableItemsFactory.class);

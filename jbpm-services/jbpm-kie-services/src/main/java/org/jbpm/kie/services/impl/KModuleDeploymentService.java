@@ -351,7 +351,7 @@ public class KModuleDeploymentService extends AbstractDeploymentService {
 	protected void processResources(InternalKieModule module, Collection<String> files,
     		KieContainer kieContainer, DeploymentUnit unit, DeployedUnitImpl deployedUnit, ReleaseId releaseId, Map<String, ProcessDescriptor> processes) {
         for (String fileName : files) {
-            if(fileName.matches(".+bpmn[2]?$")) {
+			if(fileName.matches(".+(?:(bpmn[2]?)|(cmmn))$")) {
                 ProcessAssetDesc process;
                 try {
                     String processString = new String(module.getBytes(fileName), "UTF-8");

@@ -26,6 +26,8 @@ import java.util.concurrent.ConcurrentMap;
 import org.drools.compiler.builder.impl.KnowledgeBuilderConfigurationImpl;
 import org.drools.core.io.impl.ByteArrayResource;
 import org.drools.core.util.StringUtils;
+import org.jbpm.kie.services.impl.cmmn.CMMNDataServiceBuilder;
+import org.jbpm.kie.services.impl.cmmn.DataServiceHelper;
 import org.jbpm.kie.services.impl.model.ProcessAssetDesc;
 import org.jbpm.process.core.impl.ProcessImpl;
 import org.jbpm.services.api.DefinitionService;
@@ -116,7 +118,7 @@ public class BPMN2DataServiceImpl implements DefinitionService, DeploymentEventL
         } else {
             kbuilder = KnowledgeBuilderFactory.newKnowledgeBuilder();
         }
-        kbuilder.add(new ByteArrayResource(bpmn2Content.getBytes()), ResourceType.BPMN2);
+        kbuilder.add(new ByteArrayResource(bpmn2Content.getBytes()), DataServiceHelper.isCmmn(bpmn2Content)? CMMNDataServiceBuilder.CMMN_RESOURCE_TYPE:ResourceType.BPMN2);
         if (kbuilder.hasErrors()) {
             for(KnowledgeBuilderError error: kbuilder.getErrors()){
                 logger.error("Error: {}", error.getMessage());
